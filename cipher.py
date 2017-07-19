@@ -17,7 +17,7 @@ def dictionaryTest(text):#i is the length of the entire plain text, text is a li
         if(contains(text,dictionary[a])==True):
             words=words+1
         a=a+1
-    if(words>=(len(test)/10)-1):
+    if(words>=(len(text)/10)-1):
         return True
     else:
         return False
