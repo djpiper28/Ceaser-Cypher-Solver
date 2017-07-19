@@ -9,3 +9,4 @@ Just fork the project from https://github.com/djpiper28/Dp-Cypher-Solver and cha
 Read the liscene. Then if you have any queries message me somehow.
 # Releases
 The releases are available at https://github.com/djpiper28/Dp-Cypher-Solver/releases to download and use freely.
+Release naming scheme is in the form 'major.minor-[general or dev]' e.g: 1.0-general.
