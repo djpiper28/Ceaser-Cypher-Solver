@@ -1,20 +1,23 @@
-print("module initilised")
+print("cipher.py loaded, made by djpiper28.")
+false = False
+true = True
 def contains(string, keyword):
-    s = string
-    if s.find(keyword) == -1:
-        return False
-    else:
+    string = string.lower()
+    if keyword in string: 
+        print("In the string "+string+" the keyword "+keyword+" was found")
         return True
-def dictionaryTest(text,i):#i is the length of the entire plain text, text is a list to check
-    dictionary=['hello','kind','sir','you','queen','stuff','dank','nice','very','car','train','plane','kek','the','how','she','it','when','what','is','it','and','like','game','danny','tom','thomas','if','code','man']
+    else:
+        return False
+def dictionaryTest(text):#i is the length of the entire plain text, text is a list to check
+    dictionary=['when','computers','explosion','encryption','dad','other','github','piper','father','ibm','international','hello','kind','sir','you','queen','stuff','dank','nice','very','car','train','plane','kek','the','how','she','it','when','what','is','it','and','like','game','danny','tom','thomas','if','code','man']
     #above is the dictionary which has words
     words=0#counts the amount of words
     a=0
     while(a<len(dictionary)):
-        if(contains(text,dictionary[a])==true):
+        if(contains(text,dictionary[a])==True):
             words=words+1
         a=a+1
-    if(words>=(i/10)):
+    if(words>=1):
         return True
     else:
         return False
@@ -100,14 +103,14 @@ def freqTest(text):
            y=y+1                  
         elif(text[test]=="z"):
            z=z+1
-        a=0
         test = test + 1
     if(max(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)==e):
         return True
     else:
         return False
 def getnum(s):
-    s=str(s)
+    s=str(s).lower()
+    assert (s.isalpha()==True), s+" Was not a letter in the alphabet!"
     if(s=='a'):#a-z of letters tells you the number representation of the letter
         return 1
     elif(s=='b'):
@@ -160,8 +163,10 @@ def getnum(s):
         return 25
     elif(s=='z'):
         return 26
+    elif(s.isalpha()==False):
+        return 999
 def getletter(s):
-    if(s==None):
+    if(s==None or s<=0 or s>26):
         return ''
     s=int(s)
     if(s==1):
@@ -217,25 +222,16 @@ def getletter(s):
     elif(s==26):
         return 'z'
 def makeOnlyAlpha(pt):
-    pt=pt
-    ptt=pt.split(" ")
-    ptt=pt.split("1")
-    ptt=pt.split("2")
-    ptt=pt.split("3")
-    ptt=pt.split("4")
-    ptt=pt.split("5")
-    ptt=pt.split("6")
-    ptt=pt.split("7")
-    ptt=pt.split("8")
-    ptt=pt.split("9")
-    ptt=pt.split("0")
-    ptt=pt.split(".")
-    ptt=pt.split(",")
-    ptt=pt.split(";")
-    ptt=pt.split(":")
-    ptt=pt.split("+")
-    ptt=pt.split("-")
-    ptt=pt.split("\\")
-    ptt=pt.split("/")
-    pt="".join(ptt)  #plaintexttranslate (spaces and numbers to null(code above))
-    return pt
+    things = [" ","1","2","3","4","5","6","7","8","9","0","'","."]
+    for x in things:
+        pt="".join(pt.split(x))
+    pt="".join(pt)  #plaintexttranslate (spaces and numbers to null(code above))
+    if(pt.isalpha()==True):
+        return pt
+    else:
+        print("Unrecognised letters detected, removing these now.")
+        i=0
+        while(i<len(pt)):
+            if(pt[i].isalpha()==false):
+                pt[i]=""
+            i = i + 1
