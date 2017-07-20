@@ -1,3 +1,4 @@
+import math
 print("cipher.py loaded, made by djpiper28.")
 false = False
 true = True
@@ -21,6 +22,19 @@ def dictionaryTest(text):#i is the length of the entire plain text, text is a li
         return True
     else:
         return False
+def intToBase26(integer):
+    integer=math.ceil(integer)#incase someone doesn't know what an integer is
+    if(integer<=26):
+        return getletter(integer)#gets the letter for the int
+    elif(integer>0):
+        a = integer/26
+        a = str(a).split(".")#splits of the decimal point
+        print(a)
+        out = ("z"*int(a[0])) + (getletter( int( float("0."+a[1])*26) ))#gets a float of 0.a[1] then *26 to get an int then makes it an int and gets the letter
+    else:
+        print("oops")
+        #assert (integer<0), "Error positive ints only please!"
+    return str(out)
 def freqTest(text):
     text = str(text)
     test = 0#Used in a loop
@@ -39,7 +53,6 @@ def freqTest(text):
         return False
 def getnum(s):
     s=str(s).lower()
-    assert (s.isalpha()==True), s+" Was not a letter in the alphabet!"
     if(s=='a'):#a-z of letters tells you the number representation of the letter
         return 1
     elif(s=='b'):
