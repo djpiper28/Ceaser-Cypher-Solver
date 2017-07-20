@@ -22,8 +22,7 @@ def dictionaryTest(text):#i is the length of the entire plain text, text is a li
         return True
     else:
         return False
-def intToBase26(integer):####################################################TO-FIX
-    assert (1==1), "This method is broken"
+def intToBase26(integer):
     integer=math.ceil(integer)#incase someone doesn't know what an integer is
     if(integer<=26):
         return getletter(integer)#gets the letter for the int

@@ -30,6 +30,8 @@ while(1):
 	if(todo=="encrypt" or todo=="e"):
 		plaintext=c.makeOnlyAlpha(input("Insert cipher text here.\n").lower())#gets inputs and removes spaces and numbers
 		key=c.makeOnlyAlpha(input("Please insert a key here.\n").lower())#gets the key and removes non-alphabetical characters
+		while (key=="" or key==None):
+			key=c.makeOnlyAlpha(input("Please insert a key here.\n").lower())#gets the key and removes non-alphabetical characters
 		currentletter=0#current letter of string
 		i=0#current letter of key
 		output=[]
@@ -47,15 +49,20 @@ while(1):
 		ciphertext=input("Insert cipher text here.\n")
 		ciphertext=c.makeOnlyAlpha(ciphertext)
 		key=input("If the key is know please enter it.\n").lower()
-		if(key==""):
-			print("\nSolving without the key\n")
-			key="a"
-			i=0
-			while(i<20):
-				##########
+		if(key==""):#Brute forces
+			print("No key detected, ###### please use a key as no brute force option is available for vignere.")
+			print("#####     Work In Progress Brute Forcer     #####")
+			key = 0
+			alloutputs=[]
+			output="init"
+			Continue = False
+			while (cipher.dictionaryTest(output)==False or Continue==True):
+				Continue=False
 				output=[]
+				currentletter=0
+				i=0
 				while (currentletter<len(ciphertext)):
-					out=c.getnum(ciphertext[currentletter])-c.getnum(key[i])
+					out=c.getnum(ciphertext[currentletter])-c.getnum(cipher.intToBase26(key[i]))
 					if(out<1):
 						out=26+out
 					elif(out>26):
@@ -66,13 +73,19 @@ while(1):
 						i=0
 					currentletter=currentletter+1
 				print("".join(output))
-				##########
-				key=getletter(getnum(key)+1)
+				output="".join(output)
+				print("Dictionary search and frequency check")
+				if(cipher.dictionaryTest(output)==True or cipher.freuqTest(output)==True):
+					print(output+" could be a solution!")
+					if(input("Press 'a' to continue looking for results").lower()=="a"):
+						Continue=True
+				key = 0+1
+			print("".join(alloutputs))
 		else:
 			key=c.makeOnlyAlpha(key)
 		currentletter=0#current letter of string
 		i=0#current letter of key 0=index
-		if(key!=None or key!=""):
+		if(key!=None or key!=""):#Solves with key
 			output=[]
 			while (currentletter<len(ciphertext)):
 				out=c.getnum(ciphertext[currentletter])-c.getnum(key[i])
@@ -86,5 +99,3 @@ while(1):
 					i=0
 				currentletter=currentletter+1
 			print("".join(output))
-		else:
-			print("No key detected please use a key, no brute force option is available for vignere.")		
