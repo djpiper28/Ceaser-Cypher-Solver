@@ -27,10 +27,9 @@ while 1:
 	while (text == None):
 		text = cipher.makeOnlyAlpha(input("Text to hash.\n").lower())
 	i=0#used in a loop
-	text = "a"+text#Hides first letter of text
 	output=[]
 	while (i<len(text)):
-		out = 16+hash(cipher.getnum(text[i])+int(cipher.getnum(text[i])*(len(text)+(cipher.getnum(text[i])/2))*(i/cipher.getnum(text[i]))+i)+cipher.getnum(text[i])*((i+5)*len(text)**2))
+		out = math.ceil(16+hash(cipher.getnum(text[i])+int(math.sin(cipher.getnum(text[i]))*(len(text)+(cipher.getnum(text[i])/2))*(i/cipher.getnum(text[i]))+i)+cipher.getnum(text[i])*((i+5)*len(text)**2)))
 		while (out<1):
 			out=out+(len(text)*(i+1))**2+len(text)+2*(cipher.getnum(text[0]**2))
 		while (out>26):
