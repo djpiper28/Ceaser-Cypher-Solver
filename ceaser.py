@@ -67,21 +67,21 @@ while(1):
             aa=aa+1#loop thing
     elif(todo=="encrypt" or todo=="e"):
         pt=input("text to encrypt\n").lower()#gets the input text in lower case
-        pt=c.makeOnlyAlpha(pt)
+        pt=cipher.makeOnlyAlpha(pt)
         shift=int(input("shift number\n"))#gets the integer shift number
         while(shift>26 or shift<1):
             shift=int(input("shift number\n"))#loop so that it is compatible
         i=0#used in a while loop
-        output=[]
-        while(i<len(pt)):#encryption algarithm that i can't be bothered to annotate
-            g=c.getnum(pt[i])
-            if(g==None):
-                i=i
-            elif(g+shift>26):
+        output=[]#Initilisation
+        while(i<len(pt)):#Encryption loop
+            g=c.getnum(pt[i])#just so that I don't have to copy the code a lot more.
+            if(g==None):#Checks for null
+                print(g+" Errored, should not be None")
+            elif(g+shift>26):#checks if the shift is greater value is greater than 26(highest it could be) then makes it smaller
                 g=(g+shift)-26
                 output.append(c.getletter(g))
-            else:
+            else:#Applies the shift and saves it to the array output
                 g=g+shift
                 output.append(c.getletter(g))
-            i=i+1
-        print("".join(output))
+            i=i+1#loop thing
+        print("".join(output))#joins the lsit/array output and prints it to the console

@@ -152,7 +152,7 @@ def getletter(s):
     elif(s==26):
         return 'z'
 def makeOnlyAlpha(pt):
-    things = [" "]
+    things = [" ",",",".",";",":","^","$"]#speeds up proccess by checking for common things here
     for x in things:
         pt="".join(pt.split(x))
     pt="".join(pt)  #plaintexttranslate (spaces and numbers to null(code above))
@@ -161,6 +161,7 @@ def makeOnlyAlpha(pt):
     else:
         i=0
         while(i<len(pt)):
-            if(pt[i].isalpha()==false):
-                pt[i]=""
+            if(pt[i].isalpha()==False):    
+                pt="".join(pt.split(pt[i]))
             i = i + 1
+    return pt
