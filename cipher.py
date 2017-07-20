@@ -31,7 +31,7 @@ def intToBase26(integer):####################################################TO-
         a = integer/26
         a = str(a).split(".")#splits of the decimal point
         print(a)
-        out = ("z"*int(a[0])) + (getletter( int( float("0."+a[1])*26) ))#gets a float of 0.a[1] then *26 to get an int then makes it an int and gets the letter
+        out = getletter(len("z"*int(a[0]))) + (getletter( int( float("0."+a[1])*26) ))#gets a float of 0.a[1] then *26 to get an int then makes it an int and gets the letter
     else:
         print("oops")
         #assert (integer<0), "Error positive ints only please!"
