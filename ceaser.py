@@ -53,17 +53,17 @@ while(1):
             a = a + 1#loop variable
         z=0#initilisation
         #print(alloutputs)#prints all possible solutions
-        aa=0#initilisation
-        print("Performing frequency checks now.")
-        while(aa<len(alloutputs)):#loop to perform frequency check for most likley solution
-            if(c.freqTest(alloutputs[aa])==True):
-               print("\n\n"+alloutputs[aa]+"\nis likley to be the correct solution - freq analysis")
-            aa=aa+1#loop thing
-        print("Performing dictionary searches now.")
+        print("\nPerforming dictionary searches now.")
         aa=0
         while(aa<len(alloutputs)):#loop to perform dictionary check for most likley solution
             if(c.dictionaryTest(alloutputs[aa])==True):
-               print("\n\n"+alloutputs[aa]+"\nis likley to be the correct solution - dictionary search")
+               print("\n\n'"+alloutputs[aa]+"' is likley to be the correct solution - dictionary search")
+            aa=aa+1#loop thing
+        aa=0#initilisation
+        print("\nPerforming frequency checks now.")
+        while(aa<len(alloutputs)):#loop to perform frequency check for most likley solution
+            if(c.freqTest(alloutputs[aa])==True):
+               print("\n\n'"+alloutputs[aa]+"' is likley to be the correct solution - freq analysis")
             aa=aa+1#loop thing
     elif(todo=="encrypt" or todo=="e"):
         pt=input("text to encrypt\n").lower()#gets the input text in lower case

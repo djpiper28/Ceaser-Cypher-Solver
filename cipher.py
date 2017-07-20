@@ -4,107 +4,36 @@ true = True
 def contains(string, keyword):
     string = string.lower()
     if keyword in string: 
-        print("In the string "+string+" the keyword "+keyword+" was found")
+        print("In the string '"+string+"' the keyword '"+keyword+"' was found")
         return True
     else:
         return False
 def dictionaryTest(text):#i is the length of the entire plain text, text is a list to check
-    dictionary=['when','computers','explosion','encryption','dad','other','github','piper','father','ibm','international','hello','kind','sir','you','queen','stuff','dank','nice','very','car','train','plane','kek','the','how','she','it','when','what','is','it','and','like','game','danny','tom','thomas','if','code','man']
+    dictionary=['there','when','computers','explosion','encryption','dad','other','github','piper','father','ibm','international','hello','kind','sir','you','queen','stuff','dank','nice','very','car','train','plane','kek','the','how','she','it','when','what','is','it','and','like','game','danny','tom','thomas','if','code','man']
     #above is the dictionary which has words
     words=0#counts the amount of words
     a=0
     while(a<len(dictionary)):
-        if(contains(text,dictionary[a])==True):
+        if(contains(text,dictionary[a])==True and len(dictionary[a])>3):
             words=words+1
         a=a+1
-    if(words>=(len(text)/10)-1):
+    if(words>=(len(text)/10)):
         return True
     else:
         return False
 def freqTest(text):
     text = str(text)
-    test=0
-    a=0#a-z is counting the amount of these letter
-    b=0
-    c=0
-    d=0
-    e=0
-    f=0
-    g=0
-    h=0
-    i=0
-    j=0
-    k=0
-    l=0
-    m=0
-    n=0
-    o=0
-    p=0
-    q=0
-    r=0
-    s=0
-    t=0
-    u=0
-    v=0
-    w=0
-    x=0
-    y=0
-    z=0   
+    test = 0#Used in a loop
+    aToZCount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]#sets the value for all of the letters to 0, each letter is a part of this array.
     while(test<len(text)):#if...=="a"... checks for letters and updates the count
-        if(text[test]=="a"):
-           a=a+1
-        elif(text[test]=="b"):
-           b=b+1
-        elif(text[test]=="d"):
-           d=d+1
-        elif(text[test]=="c"):
-           c=c+1
-        elif(text[test]=="e"):
-           e=e+1
-        elif(text[test]=="f"):
-           f=f+1
-        elif(text[test]=="g"):
-           g=g+1
-        elif(text[test]=="h"):
-           h=h+1
-        elif(text[test]=="i"):
-           i=i+1
-        elif(text[test]=="j"):
-           j=j+1
-        elif(text[test]=="k"):
-           k=k+1
-        elif(text[test]=="l"):
-           l=l+1
-        elif(text[test]=="m"):
-           m=m+1
-        elif(text[test]=="n"):
-           n=n+1
-        elif(text[test]=="o"):
-           o=o+1
-        elif(text[test]=="p"):
-           p=p+1
-        elif(text[test]=="q"):
-           q=q+1
-        elif(text[test]=="r"):
-           r=r+1
-        elif(text[test]=="s"):
-           s=s+1
-        elif(text[test]=="t"):
-           t=t+1
-        elif(text[test]=="u"):
-           u=u+1
-        elif(text[test]=="v"):
-           v=v+1
-        elif(text[test]=="w"):
-           w=w+1
-        elif(text[test]=="x"):
-           x=x+1            
-        elif(text[test]=="y"):
-           y=y+1                  
-        elif(text[test]=="z"):
-           z=z+1
+        i=0
+        while(i<len(aToZCount)-1):
+            if(text[test]==getletter(i+1)):
+                a = int(aToZCount[i]) + 1
+                aToZCount[i] = a
+            i=i+1
         test = test + 1
-    if(max(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z)==e):
+    if(max(aToZCount)==aToZCount[4]):
         return True
     else:
         return False
@@ -164,6 +93,7 @@ def getnum(s):
     elif(s=='z'):
         return 26
     elif(s.isalpha()==False):
+        print("Error "+a+" is not a valid letter for method getLetter()")
         return 999
 def getletter(s):
     if(s==None or s<=0 or s>26):
@@ -222,14 +152,13 @@ def getletter(s):
     elif(s==26):
         return 'z'
 def makeOnlyAlpha(pt):
-    things = [" ","1","2","3","4","5","6","7","8","9","0","'","."]
+    things = [" "]
     for x in things:
         pt="".join(pt.split(x))
     pt="".join(pt)  #plaintexttranslate (spaces and numbers to null(code above))
     if(pt.isalpha()==True):
         return pt
     else:
-        print("Unrecognised letters detected, removing these now.")
         i=0
         while(i<len(pt)):
             if(pt[i].isalpha()==false):
