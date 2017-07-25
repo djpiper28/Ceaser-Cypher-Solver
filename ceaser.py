@@ -1,28 +1,6 @@
 import cipher
 c = cipher
-print("""$$\      $$\                 $$\                 $$\                                
-$$$\    $$$ |                $$ |                $$ |                               
-$$$$\  $$$$ | $$$$$$\   $$$$$$$ | $$$$$$\        $$$$$$$\  $$\   $$\                
-$$\$$\$$ $$ | \____$$\ $$  __$$ |$$  __$$\       $$  __$$\ $$ |  $$ |               
-$$ \$$$  $$ | $$$$$$$ |$$ /  $$ |$$$$$$$$ |      $$ |  $$ |$$ |  $$ |               
-$$ |\$  /$$ |$$  __$$ |$$ |  $$ |$$   ____|      $$ |  $$ |$$ |  $$ |               
-$$ | \_/ $$ |\$$$$$$$ |\$$$$$$$ |\$$$$$$$\       $$$$$$$  |\$$$$$$$ |               
-\__|     \__| \_______| \_______| \_______|      \_______/  \____$$ |               
-                                                           $$\   $$ |               
-                                                           \$$$$$$  |               
-                                                            \______/                
-      $$\                     $$\                                $$$$$$\   $$$$$$\  
-      $$ |                    \__|                              $$  __$$\ $$  __$$\ 
- $$$$$$$ |      $$\  $$$$$$\  $$\  $$$$$$\   $$$$$$\   $$$$$$\  \__/  $$ |$$ /  $$ |
-$$  __$$ |      \__|$$  __$$\ $$ |$$  __$$\ $$  __$$\ $$  __$$\  $$$$$$  | $$$$$$  |
-$$ /  $$ |      $$\ $$ /  $$ |$$ |$$ /  $$ |$$$$$$$$ |$$ |  \__|$$  ____/ $$  __$$< 
-$$ |  $$ |      $$ |$$ |  $$ |$$ |$$ |  $$ |$$   ____|$$ |      $$ |      $$ /  $$ |
-\$$$$$$$ |      $$ |$$$$$$$  |$$ |$$$$$$$  |\$$$$$$$\ $$ |      $$$$$$$$\ \$$$$$$  |
- \_______|      $$ |$$  ____/ \__|$$  ____/  \_______|\__|      \________| \______/ 
-          $$\   $$ |$$ |          $$ |                                              
-          \$$$$$$  |$$ |          $$ |                                              
-           \______/ \__|          \__|                                              """)
-while(1):
+while 1:
     todo=input("Type the any of the following:\n'solve' to solve a ceaser \n'encrypt' to encrypt a vignere\n").lower()
     while (todo!="solve" and todo!="encrypt" and todo!="e" and todo!="s"):
         todo=input("Type:\n'solve' to solve a vignere\n'encrypt' to encrypt a ceaser\n").lower()
@@ -52,7 +30,6 @@ while(1):
             i=0#loop variable
             a = a + 1#loop variable
         z=0#initilisation
-        #print(alloutputs)#prints all possible solutions
         print("\nPerforming dictionary searches now.")
         aa=0
         while(aa<len(alloutputs)):#loop to perform dictionary check for most likley solution
@@ -85,3 +62,4 @@ while(1):
                 output.append(c.getletter(g))
             i=i+1#loop thing
         print("".join(output))#joins the lsit/array output and prints it to the console
+print("Error, 1!=1")

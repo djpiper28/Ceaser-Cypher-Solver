@@ -2,6 +2,13 @@ import math
 print("cipher.py loaded, made by djpiper28.")
 false = False
 true = True
+def getDictionaryWords():
+    f = open("dictionary.txt","r")
+    out = []
+    for line in f:
+        out.append(line) 
+    f.close
+    return out
 def contains(string, keyword):
     string = string.lower()
     if keyword in string: 
@@ -10,7 +17,7 @@ def contains(string, keyword):
     else:
         return False
 def dictionaryTest(text):#i is the length of the entire plain text, text is a list to check
-    dictionary=['there','when','computers','explosion','encryption','dad','other','github','piper','father','ibm','international','hello','kind','sir','you','queen','stuff','dank','nice','very','car','train','plane','kek','the','how','she','it','when','what','is','it','and','like','game','danny','tom','thomas','if','code','man']
+    dictionary[]=getDictionaryWords
     #above is the dictionary which has words
     words=0#counts the amount of words
     a=0
