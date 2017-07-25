@@ -17,7 +17,7 @@ def contains(string, keyword):
     else:
         return False
 def dictionaryTest(text):#i is the length of the entire plain text, text is a list to check
-    dictionary[]=getDictionaryWords
+    dictionary=getDictionaryWords()
     #above is the dictionary which has words
     words=0#counts the amount of words
     a=0
@@ -30,10 +30,8 @@ def dictionaryTest(text):#i is the length of the entire plain text, text is a li
     else:
         return False
 def intToBase26(integer):####################################################TO-FIX
-<<<<<<< HEAD
     integer=int(integer)#Makes it an int
     assert (integer<=0) "Error, integer is not positive and above zero"
-=======
     assert (1==1), "This method is broken"
     integer=math.ceil(integer)#incase someone doesn't know what an integer is
     if(integer<=26):
@@ -46,7 +44,6 @@ def intToBase26(integer):####################################################TO-
     else:
         print("oops")
         #assert (integer<0), "Error positive ints only please!"
->>>>>>> 0cd836330a01069dce8678e79e76f60a5666cb9f
     return str(out)
     a=integer/26#is a float
 def freqTest(text):
