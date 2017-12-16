@@ -6,9 +6,7 @@ encryption
 dad
 other
 github
-piper
 father
-ibm
 international
 hello
 kind
@@ -34,9 +32,6 @@ it
 and
 like
 game
-danny
-tom
-thomas
 if
 code
 man
@@ -48,4 +43,3 @@ whether
 then
 bet
 king
-pipe
